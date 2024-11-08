@@ -1,0 +1,9 @@
+com/stuti/order/magement/model/AddressType.class
+com/stuti/order/magement/model/PaymentType.class
+com/stuti/order/magement/model/Customer.class
+com/stuti/order/magement/model/Address.class
+com/stuti/order/magement/model/Product.class
+com/stuti/order/magement/model/Status.class
+com/stuti/order/magement/Application.class
+com/stuti/order/magement/repository/ProductRepository.class
+com/stuti/order/magement/model/Order.class
