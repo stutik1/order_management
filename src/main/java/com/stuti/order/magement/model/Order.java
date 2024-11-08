@@ -1,7 +1,7 @@
 package com.stuti.order.magement.model;
 
 import jakarta.persistence.*;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
@@ -9,29 +9,23 @@ import java.util.List;
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long orderId;
+    private Long id;
 
     @ManyToOne
+    @JoinColumn(name = "customer_id", nullable = false)
     private Customer customer;
 
-    @ManyToMany
-    @JoinTable(
-            name = "order_product",
-            joinColumns = @JoinColumn(name = "order_id"),
-            inverseJoinColumns = @JoinColumn(name = "product_id")
-    )
-    private List<Product> products;
+    private LocalDateTime orderDate;
 
     @Enumerated(EnumType.STRING)
     private Status status;
 
-    private LocalDate createDate;
-
     @Enumerated(EnumType.STRING)
     private PaymentType paymentType;
 
-    @OneToOne
-    private Address address;
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
+    private List<OrderProduct> orderProducts;
 
-    // Getters and setters
+    // Getters and setters...
 }
+

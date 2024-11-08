@@ -14,8 +14,8 @@ public class Product {
     private String description;
     private double price;
 
-    @ManyToMany(mappedBy = "products")
-    private List<Order> orders;
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
+    private List<OrderProduct> orderProducts;
 
-    // Getters and setters
+    // Getters and setters...
 }
